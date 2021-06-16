@@ -36,7 +36,7 @@
 
 <constants>
   <constant name="OutputFile" value="mini-DST.slcio"/>
-  <constant name="ILDConfig_DIR" value="../../LCFIPlusConfig">
+  <constant name="ILDConfig_DIR" value="./">
   <constant name="LCFIPlusVertexPrefix" value="ildl5_4q250_ZZ">
   <constant name="LCFIPlusD0ProbFile" value="${ILDConfig_DIR}/LCFIPlusConfig/vtxprob/d0probv2_${LCFIPlusVertexPrefix}.root"/>
   <constant name="LCFIPlusZ0ProbFile" value="${ILDConfig_DIR}/LCFIPlusConfig/vtxprob/z0probv2_${LCFIPlusVertexPrefix}.root">
