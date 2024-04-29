@@ -11,8 +11,9 @@ from Configurables import (
     PodioInput,
     PodioOutput,
     k4DataSvc,
+    TrackingCellIDEncodingSvc,
 )
-from Gaudi.Configuration import INFO
+from Gaudi.Configuration import INFO, DEBUG
 
 try:
     from k4FWCore.utils import SequenceLoader, import_from
@@ -139,6 +140,11 @@ geoSvc.OutputLevel = INFO
 geoSvc.EnableGeant4Geo = False
 svcList.append(geoSvc)
 
+cellIDSvc = TrackingCellIDEncodingSvc("CellIDSvc")
+cellIDSvc.EncodingStringParameterName = "GlobalTrackerReadoutID"
+cellIDSvc.GeoSvcName = geoSvc.name()
+cellIDSvc.OutputLevel = INFO
+svcList.append(cellIDSvc)
 
 CONSTANTS = {
     "CMSEnergy": str(reco_args.cmsEnergy),
@@ -223,7 +229,7 @@ if reco_args.runOverlay:
 ecal_technology = CONSTANTS["EcalTechnology"]
 hcal_technology = CONSTANTS["HcalTechnology"]
 
-if reco_args.detectorModel in FCCeeMDI_DETECTOR_MODELS:
+if True:
     sequenceLoader.load("Tracking/TrackingDigi_FCCeeMDI")
     sequenceLoader.load("Tracking/TrackingReco_FCCeeMDI")
 else:
@@ -357,5 +363,5 @@ if reco_args.lcioOutput in ("on", "only"):
     algList.append(DSTOutput)
 
 ApplicationMgr(
-    TopAlg=algList, EvtSel="NONE", EvtMax=3, ExtSvc=svcList, OutputLevel=INFO
+    TopAlg=algList, EvtSel="NONE", EvtMax=3, ExtSvc=svcList, OutputLevel=DEBUG
 )

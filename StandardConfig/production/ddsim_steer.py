@@ -159,8 +159,8 @@ SIM.guineapig.particlesPerEvent = "-1"
 ## Configuration for the DDG4 ParticleGun 
 ################################################################################
 
-##  direction of the particle gun, 3 vector 
-SIM.gun.direction = (0, 0, 1)
+##  direction of the particle gun, 3 vector
+SIM.gun.direction = (1, 1, 0.5)
 
 ## choose the distribution of the random direction for theta
 ## 

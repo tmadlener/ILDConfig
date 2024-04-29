@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
 from Configurables import MarlinProcessorWrapper
-from Gaudi.Configuration import INFO
+from Gaudi.Configuration import INFO, DEBUG
 
 MyClupatraProcessor = MarlinProcessorWrapper("MyClupatraProcessor")
-MyClupatraProcessor.OutputLevel = INFO
+MyClupatraProcessor.OutputLevel = DEBUG
 MyClupatraProcessor.ProcessorType = "ClupatraProcessor"
 MyClupatraProcessor.Parameters = {
     "Chi2Cut": ["100"],
@@ -35,7 +35,7 @@ MyClupatraProcessor.Parameters = {
 }
 
 MySiliconTracking_MarlinTrk = MarlinProcessorWrapper("MySiliconTracking_MarlinTrk")
-MySiliconTracking_MarlinTrk.OutputLevel = INFO
+MySiliconTracking_MarlinTrk.OutputLevel = DEBUG
 MySiliconTracking_MarlinTrk.ProcessorType = "SiliconTracking_MarlinTrk"
 MySiliconTracking_MarlinTrk.Parameters = {
     "AngleCutForMerging": ["0.1"],
