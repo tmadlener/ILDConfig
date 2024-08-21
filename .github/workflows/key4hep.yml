@@ -83,4 +83,5 @@ jobs:
             k4run ILDReconstruction.py \
                   --inputFiles=bbudsc_3evt_SIM.edm4hep.root \
                   --outputFileBase=bbudsc_3evt_GaudiRec \
-                  --detectorModel=${{ matrix.detector_model }}
+                  --detectorModel=${{ matrix.detector_model }} \
+                  $([ ${{matrix.detector_model}} = "ILD_l5_v11" ] && echo "--trackingOnly")
